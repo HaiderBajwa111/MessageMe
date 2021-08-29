@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MessageMe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+<div class="ui small inverted menu">
+  <div class ="ui container">
+    <%= render 'layouts/navigation' %>
+  </div>
+</div>
+    <%flash.each do |name , msg| %>
+      <div class = "ui message transation">
+      <i class = "close icon">c</i>
+        <div class = "header">
+          <%= msg %>
+        </div>
+      </div>
+    <% end %> 
+    <%= yield %>
+  </body>
+</html>
